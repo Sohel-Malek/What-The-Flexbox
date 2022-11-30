@@ -1,0 +1,115 @@
+<!--
+Notes for flexbox by Sohel-Malek
+https://github.com/Sohel-Malek/
+ -->
+
+- Container is flexbox-Container
+  > Every item inside it is flexbox-item
+
+<!-- flex-direction -->
+
+- sets axis
+
+  > [col,row,row-rev,col-rev]
+  > -in flexbox, we have main and cross axis
+
+- if i define flex-direction:row,then
+
+  > --main-axis : row
+  > --cross-axis : column
+
+- if i define flex-direction:column,then
+  > --main-axis : col
+  > --cross-axis : row
+  > Q...Where is my main axis?
+
+<!-- Flex-wrap -->
+
+-it breaks the flex-item and shift it to other line ,if runs out of space,but we must define flex-wrap in f-container,and give width:to flex-items.
+-also it automatically split the height:to fit inside container EVENLY.
+
+- Properties:
+  > [nowrap,wrap,wrap-reverse]
+
+\***\*PADDING,BORDER IS PART OF BOX-MODEL ,WHEREAS MARGIN IS NOT**\*\*\*\*\*
+
+<!-- FLEXBOX-ORDERING -->
+
+- a way to move order of DOM elements,without actualy moving them in DOM
+
+- Properties:
+
+  > Flex:1 in flex-items fits all items in primary-axis evenly
+  > order:0 -default-value
+  > order:1/1++... >>> it will shift item to end of screen
+  > order:-1/--1... >>> it will shift item to start of screen
+
+- DONT USE ORDER ,WHERE WE HAVE TO COPY AND PASTE TEXT,BCUZ IT SELECT THE WAY WE WROTE IN HTML(NOT BASED ON OUR ORDER)
+
+- USE IN LAYOUTING : HEADER,FOOTER,ABOUT ,CONTACT,PRODUCT
+
+<!--FLEXBOX ALIGNMENT  -->
+
+- justify-content
+
+  > tell flexbox how to align content on main-axIs
+
+- [flex-start,flex-end,center,space-between,space-around]
+
+<!-- ALIGN ITEMS -->
+
+- align-items
+  > it tells flexbox to align content on CROSS-AXIS
+- [baseline,center,start,end]
+  > baseline - makes content text's bottom-line in same
+
+<!-- ALIGN CONTENT -->
+
+> Aligns a flex container’s lines within the flex container when there is extra space in the cross-axis, similar to how 'justify-content' aligns individual items within the main-axis.
+
+- align-content [main thing : wrap, cross axis]
+
+  > tell flexbox how to align content on CROSS-axIs
+  > only workd when we have multiple lines of code
+
+- [flex-start,flex-end,center,space-between,space-around]
+  > default : stretch
+
+<!-- ALIGN SELF -->
+
+-what if we want particular item to have attribute?
+-overwrites align-items and put align-self property to individual item
+
+<!-- FLEX SIZING -->
+
+> width of flex-items is auto[by default]
+
+- Flex:
+  > what to do with enough/extra space around ?
+- [flex:1]
+  > sets equal width to all items and adjust inside container on main aixs
+- Flex contains the following :
+  -- flex-basis: SIZE OF ITEM
+  -- flex-grow: HOW DO WE DEAL WITH EXTRA SPACE AVAILABLE TO US?
+  -- flex-shrink: HOW DO WE SORT OF SLIM OURSELVES DOWN ,WHEN THERE ISNT ENOUGH SPACE AVAIBLE TO US
+  > shrink no is more :> size will be less
+  > if box1 shrink is 1 , and box2 shrink:2 ;then box2 will shrink 2x than box1 when space is less
+- opposite is grow: the more the no :> the larger the area!!!
+  -Shorthand of all three : [flex:grow shrink basis]
+  > eg : flex: 1 5 400px;
+
+<!-- flexbox basis and wrap wrking together -->
+
+<!-- Autoprefixer -->
+
+- install node first
+- site :
+  > https://gulpjs.com/docs/en/getting-started/quick-start > https://gulp.js ,
+  > https://autoprefixer.github.io/ > https://css-tricks.com/gulp-for-beginners/
+  - npm i gulp -g --legacy-peer-deps
+  - make a gulpfile.js file
+  - npm i gulp --save-dev
+  - npm i gulp-autoprefixer --save-dev
+
+-write inside gulpfile.js
+-run cmd gulp styles.css > build folder will be built
